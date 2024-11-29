@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centered Logo and Text with Animation</title>
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        color: white;
+        text-transform: uppercase;
+        font-size: 40px;
+        letter-spacing: 8px;
+        padding: 0;
+        overflow: hidden;  /* Prevents scrolling */
+        background: radial-gradient(circle, #000000, #354669);
+        background-size: 300% 300%;
+        animation: gradientBG 20s ease-in-out infinite;
+        position: relative; /* Set position to relative */
+    }
+
+    .centered-content {
+        position: absolute; /* Set position to absolute */
+        top: 50%; /* Center vertically */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%); /* Center the content */
+        text-align: center; /* Center text within div */
+    }
+
+    .centered-content img {
+        width: 280px;  /* Adjust the size of your logo */
+        height: auto;
+        margin-bottom: 10px;  /* Spacing between logo and text */
+    }
+
+    @keyframes gradientBG {
+        0% {
+            background-position: 0% 50%;
+        }
+        25% {
+            background-position: 50% 100%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        75% {
+            background-position: 50% 0%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+</style>
+</head>
+<body>
+<div class="centered-content">
+    <img src="logo.svg" alt="Logo">
+    <div>onupirat</div>
+</div>
+</body>
+</html>
+
