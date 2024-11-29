@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Centered Logo and Text with Animation</title>
+<link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
 <style>
     html, body {
         height: 100%;
@@ -12,28 +13,68 @@
         color: white;
         text-transform: uppercase;
         font-size: 40px;
-        letter-spacing: 8px;
+        letter-spacing: 1px;
         padding: 0;
         overflow: hidden;  /* Prevents scrolling */
-        background: radial-gradient(circle, #000000, #354669);
-        background-size: 300% 300%;
-        animation: gradientBG 20s ease-in-out infinite;
+        background-color: rgb(15, 15, 15); /* Set background to black */
+        background-image: radial-gradient(circle 850px at 30% -30%, #423375, rgb(6, 6, 6)); /* Move gradient position */
+        background-size: cover; /* Ensure the background covers the entire area */
         position: relative; /* Set position to relative */
     }
 
     .centered-content {
-        position: absolute; /* Set position to absolute */
+        position: absolute; /* Keep position absolute */
         top: 50%; /* Center vertically */
         left: 50%; /* Center horizontally */
         transform: translate(-50%, -50%); /* Center the content */
         text-align: center; /* Center text within div */
     }
 
-    .centered-content img {
-        width: 280px;  /* Adjust the size of your logo */
-        height: auto;
-        margin-bottom: 10px;  /* Spacing between logo and text */
+    .centered-content .logo {
+        width: 70% !important; /* Reduce size by 20% */
+        height: auto; /* Maintain aspect ratio */
+        margin-bottom: 10px; /* Spacing between logo and text */
     }
+
+    .button-container {
+        position: absolute; /* Position the container absolutely */
+        bottom: 30px; /* Align with the bottom of the page */
+        left: 50%; /* Center horizontally */
+        transform: translateX(-50%); /* Center the container */
+        display: flex; /* Use flexbox for layout */
+        gap: 10px; /* Space between buttons */
+    }
+
+    .mega-button {
+        display: flex; /* Ensure the button uses flexbox */
+        align-items: center; /* Center content vertically */
+        justify-content: center; /* Center content horizontally */
+        width: 120px; /* Button width */
+        height: 40px; /* Button height */
+        background-color: transparent; /* Make the button transparent */
+        border: none; /* Ensure no border is applied */
+        text-decoration: none; /* Remove underline from link */
+        border-radius: 20px; /* Added border radius */
+        transition: background-color 0.1s; /* Smooth transition for hover effect */
+        box-shadow: 0 0 2px #244f90, 0 0 5px #244f90; /* Change glow effect to new color */
+    }
+
+    .mega-button:hover {
+        background-color: rgba(240, 240, 240, 0.119); /* Add a semi-transparent background on hover */
+        box-shadow: 0 0 15px #482490, 0 0 20px #244f90; /* More pronounced glow on hover with new color */
+    }
+
+    .mega-button img {
+        max-height: 60%; /* Set max-height to ensure it fits within the button */
+        width: auto; /* Maintain aspect ratio */
+        margin: auto; /* Center the image */
+    }
+
+    .mas-button {
+        color: #b6b6b6; /* Set text color (replace #color with the desired color code) */
+        font: 20px 'Secular One', sans-serif;
+    }
+
 
     @keyframes gradientBG {
         0% {
@@ -52,13 +93,79 @@
             background-position: 0% 50%;
         }
     }
+
+    .notification {
+        position: fixed; /* Fixed position for the notification */
+        bottom: 80px; /* Position above the buttons */
+        left: 50%; /* Center horizontally */
+        transform: translateX(-50%); /* Center the notification */
+        background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+        color: white; /* Text color */
+        padding: 5px 10px; /* Reduced padding */
+        border-radius: 5px; /* Rounded corners */
+        z-index: 1000; /* Ensure it appears above other elements */
+        transition: opacity 0.5s; /* Smooth transition for visibility */
+        display: none; /* Initially hidden */
+        font-size: 14px; /* Smaller font size */
+    }
 </style>
 </head>
 <body>
 <div class="centered-content">
-    <img src="logo.svg" alt="Logo">
-    <div>onupirat</div>
+    <img src="logo.svg" alt="Logo" class="logo">
 </div>
+<div class="button-container">
+    <a href="https://mega.nz/folder/ooFzBKha#VKr9Kdu_s9kMADI6UtB1TA" class="mega-button secular-one-regular">
+        <img src="mega-logo.png" alt="Mega.nz Logo" />
+    </a>
+    <a href="#" class="mega-button mas-button secular-one-regular" id="copyButton">MAS</a>
+    <a href="#" class="mega-button mas-button secular-one-regular" id="chrisButton">Chris</a>
+</div>
+<div id="notification" class="notification">Text copied</div>
+
+<script>
+    document.getElementById('copyButton').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default anchor behavior
+
+        // Text to copy for MAS
+        const textToCopyMAS = 'irm https://get.activated.win | iex';
+
+        // Copy to clipboard for MAS
+        navigator.clipboard.writeText(textToCopyMAS).then(function() {
+            showNotification(); // Show notification
+        }).catch(function(error) {
+            console.error('Error copying text: ', error);
+        });
+    });
+
+    document.getElementById('chrisButton').addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default anchor behavior
+
+        // Text to copy for Chris
+        const textToCopyChris = 'iwr -useb https://christitus.com/win | iex';
+
+        // Copy to clipboard for Chris
+        navigator.clipboard.writeText(textToCopyChris).then(function() {
+            showNotification(); // Show notification
+        }).catch(function(error) {
+            console.error('Error copying text: ', error);
+        });
+    });
+
+    function showNotification() {
+        const notification = document.getElementById('notification');
+        notification.style.display = 'block'; // Show notification
+        notification.style.opacity = '1'; // Make it visible
+
+        // Hide notification after 2 seconds
+        setTimeout(function() {
+            notification.style.opacity = '0'; // Fade out
+            setTimeout(function() {
+                notification.style.display = 'none'; // Hide after fade out
+            }, 500); // Match the duration of the transition
+        }, 2000); // Show for 2 seconds
+    }
+</script>
 </body>
 </html>
 
