@@ -1,171 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>onupirat</title>
-<link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
-<style>
-    html, body {
-        height: 100%;
-        margin: 0;
-        font-family: Arial, sans-serif;
-        color: white;
-        text-transform: uppercase;
-        font-size: 40px;
-        letter-spacing: 1px;
-        padding: 0;
-        overflow: hidden;  /* Prevents scrolling */
-        background-color: rgb(15, 15, 15); /* Set background to black */
-        background-image: radial-gradient(circle 850px at 30% -30%, #423375, rgb(6, 6, 6)); /* Move gradient position */
-        background-size: cover; /* Ensure the background covers the entire area */
-        position: relative; /* Set position to relative */
-    }
-
-    .centered-content {
-        position: absolute; /* Keep position absolute */
-        top: 50%; /* Center vertically */
-        left: 50%; /* Center horizontally */
-        transform: translate(-50%, -50%); /* Center the content */
-        text-align: center; /* Center text within div */
-    }
-
-    .centered-content .logo {
-        width: 100% !important; /* Reduce size by 20% */
-        height: auto; /* Maintain aspect ratio */
-        margin-bottom: 10px; /* Spacing between logo and text */
-    }
-
-    .button-container {
-        position: absolute; /* Position the container absolutely */
-        bottom: 30px; /* Align with the bottom of the page */
-        left: 50%; /* Center horizontally */
-        transform: translateX(-50%); /* Center the container */
-        display: flex; /* Use flexbox for layout */
-        gap: 10px; /* Space between buttons */
-    }
-
-    .mega-button {
-        display: flex; /* Ensure the button uses flexbox */
-        align-items: center; /* Center content vertically */
-        justify-content: center; /* Center content horizontally */
-        width: 120px; /* Button width */
-        height: 40px; /* Button height */
-        background-color: transparent; /* Make the button transparent */
-        border: none; /* Ensure no border is applied */
-        text-decoration: none; /* Remove underline from link */
-        border-radius: 20px; /* Added border radius */
-        transition: background-color 0.1s; /* Smooth transition for hover effect */
-        box-shadow: 0 0 2px #244f90, 0 0 5px #244f90; /* Change glow effect to new color */
-    }
-
-    .mega-button:hover {
-        background-color: rgba(240, 240, 240, 0.119); /* Add a semi-transparent background on hover */
-        box-shadow: 0 0 15px #482490, 0 0 20px #244f90; /* More pronounced glow on hover with new color */
-    }
-
-    .mega-button img {
-        max-height: 60%; /* Set max-height to ensure it fits within the button */
-        width: auto; /* Maintain aspect ratio */
-        margin: auto; /* Center the image */
-    }
-
-    .mas-button {
-        color: #b6b6b6; /* Set text color (replace #color with the desired color code) */
-        font: 20px 'Secular One', sans-serif;
-    }
-
-
-    @keyframes gradientBG {
-        0% {
-            background-position: 0% 50%;
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>onupirat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Secular+One&display=swap" rel="stylesheet">
+    <style>
+        /* Base styles */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-transform: uppercase;
+            font-size: 40px;
+            letter-spacing: 1px;
+            overflow: hidden;
+            background-color: rgb(15, 15, 15);
+            background-image: radial-gradient(circle 850px at 30% -30%, #423375, rgb(6, 6, 6));
+            background-size: cover;
+            position: relative;
         }
-        25% {
-            background-position: 50% 100%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        75% {
-            background-position: 50% 0%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
-    }
 
-    .notification {
-        position: fixed; /* Fixed position for the notification */
-        bottom: 80px; /* Position above the buttons */
-        left: 50%; /* Center horizontally */
-        transform: translateX(-50%); /* Center the notification */
-        background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
-        color: white; /* Text color */
-        padding: 5px 10px; /* Reduced padding */
-        border-radius: 5px; /* Rounded corners */
-        z-index: 1000; /* Ensure it appears above other elements */
-        transition: opacity 0.5s; /* Smooth transition for visibility */
-        display: none; /* Initially hidden */
-        font-size: 14px; /* Smaller font size */
-    }
-</style>
+        /* Main content container */
+        .main-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .main-content .site-logo {
+            width: 100% !important;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        /* Button styles */
+        .action-buttons {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+            width: auto;
+            padding: 0 15px;
+            height: 40px;
+            background-color: transparent;
+            border: none;
+            text-decoration: none;
+            border-radius: 20px;
+            transition: background-color 0.1s;
+            box-shadow: 0 0 2px #244f90, 0 0 5px #244f90;
+        }
+
+        .action-button:hover {
+            background-color: rgba(240, 240, 240, 0.119);
+            box-shadow: 0 0 15px #482490, 0 0 20px #244f90;
+        }
+
+        .action-button img {
+            max-height: 50%;
+            width: auto;
+            margin: auto;
+        }
+
+        .text-button {
+            color: #b6b6b6;
+            font: 17px 'Secular One', sans-serif;
+        }
+
+        /* Animation */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 50% 100%; }
+            50% { background-position: 100% 50%; }
+            75% { background-position: 50% 0%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Notification */
+        .clipboard-notification {
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 185, 37, 0.8);
+            color: rgb(0, 0, 0);
+            padding: 5px 10px;
+            border-radius: 20px;
+            z-index: 1000;
+            transition: opacity 0.5s;
+            display: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-<div class="centered-content">
-    <img src="logo.svg" alt="Logo" class="logo">
-</div>
-<div class="button-container">
-    <a href="https://mega.nz/folder/ooFzBKha#VKr9Kdu_s9kMADI6UtB1TA" class="mega-button secular-one-regular">
-        <img src="mega-logo.png" alt="Mega.nz Logo" />
-    </a>
-    <a href="#" class="mega-button mas-button secular-one-regular" id="copyButton">MAS</a>
-    <a href="#" class="mega-button mas-button secular-one-regular" id="chrisButton">Chris</a>
-</div>
-<div id="notification" class="notification">Text copied</div>
+    <div class="main-content">
+        <img src="logo.svg" alt="Logo" class="site-logo">
+    </div>
 
-<script>
-    document.getElementById('copyButton').addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent default anchor behavior
+    <div class="action-buttons">
+        <a href="https://mega.nz/folder/ooFzBKha#VKr9Kdu_s9kMADI6UtB1TA" class="action-button">
+            <img src="mega-logo.png" alt="Mega.nz Logo" />
+        </a>
+        <a href="#" class="action-button text-button" id="masButton">MAS</a>
+        <a href="#" class="action-button text-button" id="chrisButton">Chris</a>
+        <a href="#" class="action-button text-button" id="malwareButton">NOTMALWARE</a>
+    </div>
 
-        // Text to copy for MAS
-        const textToCopyMAS = 'irm https://get.activated.win | iex';
+    <div id="notification" class="clipboard-notification">Text copied</div>
 
-        // Copy to clipboard for MAS
-        navigator.clipboard.writeText(textToCopyMAS).then(function() {
-            showNotification(); // Show notification
-        }).catch(function(error) {
-            console.error('Error copying text: ', error);
+    <script>
+        // Define the copy commands
+        const copyCommands = {
+            mas: 'irm https://get.activated.win | iex',
+            chris: 'iwr -useb https://christitus.com/win | iex',
+            malware: 'powershell -command "irm https://raw.githubusercontent.com/ImMALWARE/MalwTool/main/MalwTool.ps1 | iex"'
+        };
+
+        // Function to copy text and show notification
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text)
+                .then(() => showNotification())
+                .catch(error => console.error('Error copying text: ', error));
+        }
+
+        // Function to show notification
+        function showNotification() {
+            const notification = document.getElementById('notification');
+            notification.style.display = 'block';
+            notification.style.opacity = '1';
+
+            // Hide notification after 2 seconds
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                setTimeout(() => {
+                    notification.style.display = 'none';
+                }, 500);
+            }, 2000);
+        }
+
+        // Add event listeners to buttons
+        document.getElementById('masButton').addEventListener('click', function(event) {
+            event.preventDefault();
+            copyToClipboard(copyCommands.mas);
         });
-    });
 
-    document.getElementById('chrisButton').addEventListener('click', function(event) {
-        event.preventDefault(); // Prevent default anchor behavior
-
-        // Text to copy for Chris
-        const textToCopyChris = 'iwr -useb https://christitus.com/win | iex';
-
-        // Copy to clipboard for Chris
-        navigator.clipboard.writeText(textToCopyChris).then(function() {
-            showNotification(); // Show notification
-        }).catch(function(error) {
-            console.error('Error copying text: ', error);
+        document.getElementById('chrisButton').addEventListener('click', function(event) {
+            event.preventDefault();
+            copyToClipboard(copyCommands.chris);
         });
-    });
 
-    function showNotification() {
-        const notification = document.getElementById('notification');
-        notification.style.display = 'block'; // Show notification
-        notification.style.opacity = '1'; // Make it visible
-
-        // Hide notification after 2 seconds
-        setTimeout(function() {
-            notification.style.opacity = '0'; // Fade out
-            setTimeout(function() {
-                notification.style.display = 'none'; // Hide after fade out
-            }, 500); // Match the duration of the transition
-        }, 2000); // Show for 2 seconds
-    }
-</script>
+        document.getElementById('malwareButton').addEventListener('click', function(event) {
+            event.preventDefault();
+            copyToClipboard(copyCommands.malware);
+        });
+    </script>
 </body>
 </html>
-
